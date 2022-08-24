@@ -1,9 +1,9 @@
 const express = require("express");
 const mongoose = require("mongoose");
-// const user = require("./route/user")
+const user = require("./route/user")
 const app = express();
 
-const port = 8000;
+const port = 3000;
 
 const url = 'mongodb://localhost/facebook_clone'
 
@@ -18,7 +18,7 @@ con.on("open",() => {
 })
 
 app.use(express.json());
-// app.use('/user',user);
+app.use('/user',user);
 
 
 app.listen(port,(req,res) => {
