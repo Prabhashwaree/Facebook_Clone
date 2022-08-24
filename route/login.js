@@ -16,7 +16,7 @@ router.post('/', async (req, res) => {
                 res.json(i);
 
         }else{
-            res.send("Incorrect password..");
+            // res.send("Incorrect password..");
         }
     }
 })
