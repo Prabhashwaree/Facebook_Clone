@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 
-const User = require("../modle/user.modle");
+const User = require('../modle/user.modle');
 app.use(express.json);
 
 
@@ -22,6 +22,7 @@ router.get('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
+        console.log(req.params.id);
         const user = await User.findById(req.params.id)
         res.json(user)
     } catch (err) {
@@ -54,11 +55,11 @@ router.post('/', async (req, res) => {
 
 router.delete('/:id', async (req, res) => {
     try {
-        
-        const user = await User.find({_id:req.params.id},{})
+        console.log('hhh',req.params.id);
+        const user = await User.findById(req.params.id)
         console.log(user);
-        // const response = await user.remove()
-        // res.json(response);
+        const response = await user.remove()
+        res.json(response);
 
         
     } catch (err) {
